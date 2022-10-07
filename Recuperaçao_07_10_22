@@ -1,0 +1,162 @@
+1. Crie um código que apresente uma herança.
+
+public class Pai
+
+    {
+
+        public string Nome = "Rafael";
+
+        public int Idade = 42;
+
+    }
+  
+
+
+  public class Filha : Pai
+
+    {
+
+        public new string Nome = "Tabita";
+
+        public new int Idade = 15;
+
+
+
+        public void MostrarValores()
+
+        {
+
+            Console.WriteLine("Nome Filha: " + Nome);
+
+            Console.WriteLine("Nome Pai: " + base.Nome);
+
+            Console.WriteLine("Idade Filha: " + Idade);
+
+            Console.WriteLine("Idade Pai: " + base.Idade);
+
+        }
+
+    }
+    
+Filha objFilha = new Filha();
+
+            objFilha.MostrarValores();
+
+
+            Console.ReadKey();
+         
+
+2. Crie um código que apresente uma implementação de interface.
+
+package material.exemploInterface;
+
+public interface BancoDados {
+  public abstract void manutencaoConta(Conta conta);
+  public abstract boolean saque(Conta conta, double valor);
+  public abstract boolean deposito(Conta conta, double valor);
+  public abstract void extrato(Conta conta);
+}
+ 
+
+3. Crie um código que apresente uma sobrecarga de método.
+
+public class calculadora{
+ public int calcula(int a,int b){
+       return a+b;
+ }
+  public double calcula(double a,double b){
+        return a+b;
+   }
+  public String calcula(String a,String b){
+        return a+b;
+  }
+   public static void main(String args[]){
+     calculadora calc= new calculadora();
+     System.out.println(calc.calcula(1,1));
+    System.out.println(calc.calcula(2.0,6.1));
+    System.out.println(calc.calcula("vi","ram?"));
+  }
+}
+ 
+
+4. Crie um código que apresente uma relação de composição.
+
+public class Revista
+  {
+
+        public String titulo;
+        public String autor;
+
+        Revista(String titulo, String autor)
+        {
+        
+            this.titulo = titulo;
+            this.autor = autor;
+        }
+   }
+   
+public class Editora
+  {
+  
+        private final List<Revista> revistas;
+        
+        Editora(List<Revista> revistas)
+        {
+        
+          this.revistas = revistas;
+         
+        }
+        
+public List<Revista> getList0fRevistasInEditora()
+ {
+    return revistas;
+ }
+}
+ 
+    
+5. Apresente os códigos dos exercícios anteriores em um diagrama de classes da UML.
+5.1
+   |------------------------------------------------------|                       |------------------------------------------------------|     
+   |                          Pai                         |                       |                         Filha                        |
+   |                         Rafael                       |                       |                         Tabita                       |   
+   |------------------------------------------------------|                       |------------------------------------------------------|   
+   | -Nome  : String;                                     | --------------------->| -Nome  : String;                                     |
+   | -Idade : int;                                        |                       | -Idade : int;                                        |
+   |------------------------------------------------------|                       |------------------------------------------------------|   
+   | + Pai(String Nome, int Idade)                        |                       |  + Filha(String Nome, int Idade)                     |     
+   |------------------------------------------------------|                       |------------------------------------------------------|        
+
+5.2
+   |------------------------------------------------------|
+   |                     <<interface>>                    |
+   |                         Banco                        |
+   |------------------------------------------------------|
+   |                       Atributos                      |
+   |------------------------------------------------------|
+   |                       Operações                      |
+   | + manutecaoConta(conta : Conta) : void               |
+   | + deposito( conta : Conta, valor : double) : boolean |
+   | + saque(conta : Conta, valor : double) : boolean     |
+   | + extrato( conta : Conta ) : void                    |
+   |------------------------------------------------------|
+   
+5.3
+   |------------------------------------------------------|
+   |                     calculadora                      |
+   |------------------------------------------------------|
+   | -calculadora : int;                                  |
+   | -calculadora : double;                               |
+   | -calculadora : String;                               |
+   |------------------------------------------------------|
+   | + calculadora(int calc, double calc, String calc)    |
+   |------------------------------------------------------|
+   
+5.4
+   |------------------------------------------------------|                       |-------------------------------------------------------|     
+   |                     Revistas                         |                       |                        Editora                        |  
+   |------------------------------------------------------|                       |-------------------------------------------------------|   
+   | + titulo : string                                    | --------------------->| + titulo : string                                     |
+   | + autor : string                                     |                       | + autor : string                                      |
+   |------------------------------------------------------|                       |-------------------------------------------------------|   
+   | + SetRevistas(titulo : string, autor : string): void |                       | + SetEditora(titulo : string,  autor : string): void  |     
+   |------------------------------------------------------|                       |-------------------------------------------------------|        
